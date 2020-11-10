@@ -3,6 +3,8 @@ class JenkinsDemo{
 		String s1="bcb",s2="fabcbaf";
 		System.out.println("S1 is substring of S2:"+isSubstring(s1,s2));
 		System.out.println("S1 and S2 are anagrams:"+isAnagram(s1,s2));
+		System.out.println("S1 is palindrom:"+isPalindrom(s1));
+		System.out.println("S2 is palindrom:"+isPalindrom(s2));
 	}
 
 	public static boolean isSubstring(String s1,String s2){
@@ -45,6 +47,23 @@ class JenkinsDemo{
 				return false;
 			}
 		}
+		return true;
+	}
+
+	public static boolean isPalindrom(String s){
+		char[] c=s.toCharArray();
+		int n=s.length();
+		int j=n-1,l=n/2;
+
+		for (int i=0;i<=l;++i) {
+			if(c[i]!=c[j]){
+				return false;
+			}
+			else{
+				--j;
+			}
+		}
+
 		return true;
 	}
 }
