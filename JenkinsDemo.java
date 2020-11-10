@@ -2,6 +2,7 @@ class JenkinsDemo{
 	public static void main(String[] args) {
 		String s1="bcb",s2="fabcbaf";
 		System.out.println("S1 is substring of S2:"+isSubstring(s1,s2));
+		System.out.println("S1 and S2 are anagrams:"+isAnagram(s1,s2));
 	}
 
 	public static boolean isSubstring(String s1,String s2){
@@ -25,5 +26,25 @@ class JenkinsDemo{
 			}
 		}
 		return false;
+	}
+
+	public static boolean isAnagram(String s1,String s2){
+		char[] c1=s1.toCharArray();
+		char[] c2=s2.toCharArray();		
+		int n=s2.length(),m=s1.length();
+		if(n!=m){return false;}
+		int[] counter=new int[26];
+		
+		for (int i=0;i<n;++i) {
+			++counter[c1[i]-'a'];
+			--counter[c2[i]-'a'];
+		}
+
+		for (int i=0;i<26;++i) {
+			if(counter[i]!=0){
+				return false;
+			}
+		}
+		return true;
 	}
 }
